@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Destinations</title>
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'destination_list' %}">Tourist Destinations</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'destination_list' %}">Home</a></li>
+                <li><a href="{% url 'destination_create' %}">Add Destination</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS and other JS -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

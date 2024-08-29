@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">{{ destination.place_name }}</h1>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <img src="{{ destination.image.url }}" alt="{{ destination.place_name }}" class="img-fluid rounded" style="width: 100%; height: auto; max-width: 500px;">
+                    </div>
+                    <p><strong>Location:</strong> {{ destination.location }}</p>
+                    <p><strong>Weather:</strong> {{ destination.weather }}</p>
+                    <p><strong>Description:</strong> {{ destination.description }}</p>
+                    <p><a href="{{ destination.google_map_link }}" target="_blank" class="btn btn-primary">View on Google Maps</a></p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'destination_update' destination.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'destination_delete' destination.pk %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
