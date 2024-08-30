@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">ExploreEase</a>
+                <a class="navbar-brand" href="#">TripEase</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -49,9 +49,17 @@
                     <li><a href="{% url 'destination_create' %}">Add Location</a></li>
                     <li><a href="#location">Top Locations</a></li>
                 </ul>
+                <!-- Search Form -->
+                <form class="navbar-form navbar-right" method="GET" action="{% url 'destination_list' %}">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Location" name="q" value="{{ request.GET.q }}">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
             </div>
         </div>
     </nav>
+    
 
     <!-- Home Banner -->
     <section id="banner" class="parallax">

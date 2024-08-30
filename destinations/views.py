@@ -11,8 +11,13 @@ class DestinationViewSet(viewsets.ModelViewSet):
 
 # Views for HTML rendering
 def destination_list(request):
-    destinations = Destination.objects.all()
+    query = request.GET.get('q')  # Get the search query from the request
+    if query:
+        destinations = Destination.objects.filter(place_name__icontains=query)
+    else:
+        destinations = Destination.objects.all()
     return render(request, 'destination_list.html', {'destinations': destinations})
+
 
 def destination_detail(request, pk):
     destination = get_object_or_404(Destination, pk=pk)
